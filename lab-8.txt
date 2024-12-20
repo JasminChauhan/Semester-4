@@ -1,0 +1,913 @@
+use Darshan 
+switched to db Darshan
+use DIET
+switched to db DIET
+show databases 
+admin    48.00 KiB
+config   72.00 KiB
+local   112.00 KiB
+test      8.00 KiB
+show dbs
+admin    48.00 KiB
+config   72.00 KiB
+local   112.00 KiB
+test      8.00 KiB
+db
+DIET
+db.dropDatabase()
+{ ok: 1, dropped: 'DIET' }
+use Darshan 
+switched to db Darshan
+db.createCollection("Student")
+{ ok: 1 }
+db.create\
+SyntaxError: Expecting Unicode escape sequence \uXXXX. (1:10)
+
+> 1 | db.create\
+    |           ^
+db.createCollection("Department")
+{ ok: 1 }
+show collections
+Department
+Student
+
+db.Department.insertOne({})
+{
+  acknowledged: true,
+  insertedId: ObjectId('676516130a98c2838f1c0bc6')
+}
+db.Department.drop()
+true
+db.createCollection("Department")
+{ ok: 1 }
+db.Department.insertOne({Dname:'CE', HOD:'Patel'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6765167b0a98c2838f1c0bc7')
+}
+db.Department.insertMany([{Dname : 'IT' , HOD : 'AVB'} , {Dname : 'ICT' , HOD : 'FAS'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('676517270a98c2838f1c0bc8'),
+    '1': ObjectId('676517270a98c2838f1c0bc9')
+  }
+}
+db.Department.drop()
+true
+db.Student.insertOne({Name : 'Jasmin' , City : 'Porbandar' , Branch : 'CSE' , Semester : 4 , Age : 19})
+{
+  acknowledged: true,
+  insertedId: ObjectId('676518010a98c2838f1c0bca')
+}
+db.Student.insertMany([  {Name : 'Jasmin' , City : 'Porbandar' , Branch : 'CSE' , Semester : 4 , Age : 19},
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6765186b0a98c2838f1c0bcb')
+  }
+}
+db.Student.insertMany([  {Name : 'Jasmin' , City : 'Porbandar' , Branch : 'CSE' , Semester : 4 , Age : 19},
+{Name : 'Jasmin' , City : 'Porbandar' , Branch : 'CSE' , Semester : 4 , Age : 19}
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6765187c0a98c2838f1c0bcc'),
+    '1': ObjectId('6765187c0a98c2838f1c0bcd')
+  }
+}
+db.getCollectionNames().includes("Student")
+true
+db.Student.stats()
+{
+      'records written including a stop transaction ID': 0
+    },
+    session: {
+      'object compaction': 0,
+      'tiered operations dequeued and processed': 0,
+      'tiered operations scheduled': 0,
+      'tiered storage local retention time (secs)': 0
+    },
+    transaction: {
+      'checkpoint has acquired a snapshot for its transaction': 0,
+      'race to read prepared update retry': 0,
+      'rollback to stable history store records with stop timestamps older than newer records': 0,
+      'rollback to stable inconsistent checkpoint': 0,
+      'rollback to stable keys removed': 0,
+      'rollback to stable keys restored': 0,
+      'rollback to stable restored tombstones from history store': 0,
+      'rollback to stable restored updates from history store': 0,
+      'rollback to stable skipping delete rle': 0,
+      'rollback to stable skipping stable rle': 0,
+      'rollback to stable sweeping history store keys': 0,
+      'rollback to stable updates removed from history store': 0,
+      'transaction checkpoints due to obsolete pages': 0,
+      'update conflicts': 0
+    }
+  },
+  sharded: false,
+  size: 392,
+  count: 4,
+  numOrphanDocs: 0,
+  storageSize: 36864,
+  totalIndexSize: 36864,
+  totalSize: 73728,
+  indexSizes: { _id_: 36864 },
+  avgObjSize: 98,
+  ns: 'Darshan.Student',
+  nindexes: 1,
+  scaleFactor: 1
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+db.Student.drop()
+true
+db.createCole
+Darshan.createCole
+db.createCollection("Deposit")
+{ ok: 1 }
+db.Deposit.insertMany([
+  { ACTNO: 101, CNAME: 'ANIL', BNAME: 'VRCE', AMOUNT: 1000.00, CITY: 'RAJKOT' },
+  { ACTNO: 102, CNAME: 'SUNIL', BNAME: 'AJNI', AMOUNT: 5000.00, CITY: 'SURAT' },
+  { ACTNO: 103, CNAME: 'MEHUL', BNAME: 'KAROLBAGH', AMOUNT: 3500.00, CITY: 'BARODA' },
+  { ACTNO: 104, CNAME: 'MADHURI', BNAME: 'CHANDI', AMOUNT: 1200.00, CITY: 'AHMEDABAD' },
+  { ACTNO: 105, CNAME: 'PRMOD', BNAME: 'M.G. ROAD', AMOUNT: 3000.00, CITY: 'SURAT' },
+  { ACTNO: 106, CNAME: 'SANDIP', BNAME: 'ANDHERI', AMOUNT: 2000.00, CITY: 'RAJKOT' },
+  { ACTNO: 107, CNAME: 'SHIVANI', BNAME: 'VIRAR', AMOUNT: 1000.00, CITY: 'SURAT' },
+  { ACTNO: 108, CNAME: 'KRANTI', BNAME: 'NEHRU PLACE', AMOUNT: 5000.00, CITY: 'RAJKOT' }
+]
+)
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('676519600a98c2838f1c0bce'),
+    '1': ObjectId('676519600a98c2838f1c0bcf'),
+    '2': ObjectId('676519600a98c2838f1c0bd0'),
+    '3': ObjectId('676519600a98c2838f1c0bd1'),
+    '4': ObjectId('676519600a98c2838f1c0bd2'),
+    '5': ObjectId('676519600a98c2838f1c0bd3'),
+    '6': ObjectId('676519600a98c2838f1c0bd4'),
+    '7': ObjectId('676519600a98c2838f1c0bd5')
+  }
+}
+db.Deposit.find()
+{
+  _id: ObjectId('676519600a98c2838f1c0bce'),
+  ACTNO: 101,
+  CNAME: 'ANIL',
+  BNAME: 'VRCE',
+  AMOUNT: 1000,
+  CITY: 'RAJKOT'
+}
+{
+  _id: ObjectId('676519600a98c2838f1c0bcf'),
+  ACTNO: 102,
+  CNAME: 'SUNIL',
+  BNAME: 'AJNI',
+  AMOUNT: 5000,
+  CITY: 'SURAT'
+}
+{
+  _id: ObjectId('676519600a98c2838f1c0bd0'),
+  ACTNO: 103,
+  CNAME: 'MEHUL',
+  BNAME: 'KAROLBAGH',
+  AMOUNT: 3500,
+  CITY: 'BARODA'
+}
+{
+  _id: ObjectId('676519600a98c2838f1c0bd1'),
+  ACTNO: 104,
+  CNAME: 'MADHURI',
+  BNAME: 'CHANDI',
+  AMOUNT: 1200,
+  CITY: 'AHMEDABAD'
+}
+{
+  _id: ObjectId('676519600a98c2838f1c0bd2'),
+  ACTNO: 105,
+  CNAME: 'PRMOD',
+  BNAME: 'M.G. ROAD',
+  AMOUNT: 3000,
+  CITY: 'SURAT'
+}
+{
+  _id: ObjectId('676519600a98c2838f1c0bd3'),
+  ACTNO: 106,
+  CNAME: 'SANDIP',
+  BNAME: 'ANDHERI',
+  AMOUNT: 2000,
+  CITY: 'RAJKOT'
+}
+{
+  _id: ObjectId('676519600a98c2838f1c0bd4'),
+  ACTNO: 107,
+  CNAME: 'SHIVANI',
+  BNAME: 'VIRAR',
+  AMOUNT: 1000,
+  CITY: 'SURAT'
+}
+{
+  _id: ObjectId('676519600a98c2838f1c0bd5'),
+  ACTNO: 108,
+  CNAME: 'KRANTI',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 5000,
+  CITY: 'RAJKOT'
+}
+db.Deposit.drop()
+true
+use BANK_INFO
+switched to db BANK_INFO
+db.createCollection("Deposit")
+{ ok: 1 }
+db.Deposit.insertMany([
+  {
+    "ACTNO": 101,
+    "CNAME": "ANIL",
+    "BNAME": "VRCE",
+    "AMOUNT": 1000,
+    "ADATE": "1995-03-01"
+  },
+  {
+    "ACTNO": 102,
+    "CNAME": "SUNIL",
+    "BNAME": "AJNI",
+    "AMOUNT": 5000,
+    "ADATE": "1996-01-04"
+  },
+  {
+    "ACTNO": 103,
+    "CNAME": "MEHUL",
+    "BNAME": "KAROLBAGH",
+    "AMOUNT": 3500,
+    "ADATE": "1995-11-17"
+  },
+  {
+    "ACTNO": 104,
+    "CNAME": "MADHURI",
+    "BNAME": "CHANDI",
+    "AMOUNT": 1200,
+    "ADATE": "1995-12-17"
+  },
+  {
+    "ACTNO": 105,
+    "CNAME": "PRMOD",
+    "BNAME": "M.G. ROAD",
+    "AMOUNT": 3000,
+    "ADATE": "1996-03-27"
+  },
+  {
+    "ACTNO": 106,
+    "CNAME": "SANDIP",
+    "BNAME": "ANDHERI",
+    "AMOUNT": 2000,
+    "ADATE": "1996-03-31"
+  },
+  {
+    "ACTNO": 107,
+    "CNAME": "SHIVANI",
+    "BNAME": "VIRAR",
+    "AMOUNT": 1000,
+    "ADATE": "1995-09-05"
+  },
+  {
+    "ACTNO": 108,
+    "CNAME": "KRANTI",
+    "BNAME": "NEHRU PLACE",
+    "AMOUNT": 5000,
+    "ADATE": "1995-07-02"
+  }
+]
+
+
+)
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67651a360a98c2838f1c0bd6'),
+    '1': ObjectId('67651a360a98c2838f1c0bd7'),
+    '2': ObjectId('67651a360a98c2838f1c0bd8'),
+    '3': ObjectId('67651a360a98c2838f1c0bd9'),
+    '4': ObjectId('67651a360a98c2838f1c0bda'),
+    '5': ObjectId('67651a360a98c2838f1c0bdb'),
+    '6': ObjectId('67651a360a98c2838f1c0bdc'),
+    '7': ObjectId('67651a360a98c2838f1c0bdd')
+  }
+}
+db.Deposit.find()
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd6'),
+  ACTNO: 101,
+  CNAME: 'ANIL',
+  BNAME: 'VRCE',
+  AMOUNT: 1000,
+  ADATE: '1995-03-01'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd7'),
+  ACTNO: 102,
+  CNAME: 'SUNIL',
+  BNAME: 'AJNI',
+  AMOUNT: 5000,
+  ADATE: '1996-01-04'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd8'),
+  ACTNO: 103,
+  CNAME: 'MEHUL',
+  BNAME: 'KAROLBAGH',
+  AMOUNT: 3500,
+  ADATE: '1995-11-17'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd9'),
+  ACTNO: 104,
+  CNAME: 'MADHURI',
+  BNAME: 'CHANDI',
+  AMOUNT: 1200,
+  ADATE: '1995-12-17'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bda'),
+  ACTNO: 105,
+  CNAME: 'PRMOD',
+  BNAME: 'M.G. ROAD',
+  AMOUNT: 3000,
+  ADATE: '1996-03-27'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdb'),
+  ACTNO: 106,
+  CNAME: 'SANDIP',
+  BNAME: 'ANDHERI',
+  AMOUNT: 2000,
+  ADATE: '1996-03-31'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdc'),
+  ACTNO: 107,
+  CNAME: 'SHIVANI',
+  BNAME: 'VIRAR',
+  AMOUNT: 1000,
+  ADATE: '1995-09-05'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdd'),
+  ACTNO: 108,
+  CNAME: 'KRANTI',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 5000,
+  ADATE: '1995-07-02'
+}
+db.Deposit.findOne()
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd6'),
+  ACTNO: 101,
+  CNAME: 'ANIL',
+  BNAME: 'VRCE',
+  AMOUNT: 1000,
+  ADATE: '1995-03-01'
+}
+db.Deposit.insertOne({ACTNO: 109,
+  CNAME: 'KIRTI',
+  BNAME: 'VIRAR',
+  AMOUNT: 3000,
+  ADATE: '1997-05-03'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67651ac70a98c2838f1c0bde')
+}
+db.Deposit.insertMany([{
+    "ACTNO": 110,
+    "CNAME": "MITALI",
+    "BNAME": "ANDHERI",
+    "AMOUNT": 4500,
+    "ADATE": "1995-09-04"
+  },
+  {
+    "ACTNO": 111,
+    "CNAME": "RAJIV",
+    "BNAME": "NEHRU PLACE",
+    "AMOUNT": 7000,
+    "ADATE": "1998-10-02"
+  }])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67651b7f0a98c2838f1c0bdf'),
+    '1': ObjectId('67651b7f0a98c2838f1c0be0')
+  }
+}
+db.Deposit.find({BNAME : "VIRAR"})
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdc'),
+  ACTNO: 107,
+  CNAME: 'SHIVANI',
+  BNAME: 'VIRAR',
+  AMOUNT: 1000,
+  ADATE: '1995-09-05'
+}
+{
+  _id: ObjectId('67651ac70a98c2838f1c0bde'),
+  ACTNO: 109,
+  CNAME: 'KIRTI',
+  BNAME: 'VIRAR',
+  AMOUNT: 3000,
+  ADATE: '1997-05-03'
+}
+db.Deposit.find({$and : [{AMOUNT : {$gte : 5000}} , {AMOUNT : {$lte : 3000}} ]})
+db.Deposit.find({$and : [{AMOUNT : {$lte : 5000}} , {AMOUNT : {$gte : 3000}} ]})
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd7'),
+  ACTNO: 102,
+  CNAME: 'SUNIL',
+  BNAME: 'AJNI',
+  AMOUNT: 5000,
+  ADATE: '1996-01-04'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd8'),
+  ACTNO: 103,
+  CNAME: 'MEHUL',
+  BNAME: 'KAROLBAGH',
+  AMOUNT: 3500,
+  ADATE: '1995-11-17'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bda'),
+  ACTNO: 105,
+  CNAME: 'PRMOD',
+  BNAME: 'M.G. ROAD',
+  AMOUNT: 3000,
+  ADATE: '1996-03-27'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdd'),
+  ACTNO: 108,
+  CNAME: 'KRANTI',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 5000,
+  ADATE: '1995-07-02'
+}
+{
+  _id: ObjectId('67651ac70a98c2838f1c0bde'),
+  ACTNO: 109,
+  CNAME: 'KIRTI',
+  BNAME: 'VIRAR',
+  AMOUNT: 3000,
+  ADATE: '1997-05-03'
+}
+{
+  _id: ObjectId('67651b7f0a98c2838f1c0bdf'),
+  ACTNO: 110,
+  CNAME: 'MITALI',
+  BNAME: 'ANDHERI',
+  AMOUNT: 4500,
+  ADATE: '1995-09-04'
+}
+db.Deposit.find({AMOUNT : {$lte : 5000 , $gte : 3000}})
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd7'),
+  ACTNO: 102,
+  CNAME: 'SUNIL',
+  BNAME: 'AJNI',
+  AMOUNT: 5000,
+  ADATE: '1996-01-04'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd8'),
+  ACTNO: 103,
+  CNAME: 'MEHUL',
+  BNAME: 'KAROLBAGH',
+  AMOUNT: 3500,
+  ADATE: '1995-11-17'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bda'),
+  ACTNO: 105,
+  CNAME: 'PRMOD',
+  BNAME: 'M.G. ROAD',
+  AMOUNT: 3000,
+  ADATE: '1996-03-27'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdd'),
+  ACTNO: 108,
+  CNAME: 'KRANTI',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 5000,
+  ADATE: '1995-07-02'
+}
+{
+  _id: ObjectId('67651ac70a98c2838f1c0bde'),
+  ACTNO: 109,
+  CNAME: 'KIRTI',
+  BNAME: 'VIRAR',
+  AMOUNT: 3000,
+  ADATE: '1997-05-03'
+}
+{
+  _id: ObjectId('67651b7f0a98c2838f1c0bdf'),
+  ACTNO: 110,
+  CNAME: 'MITALI',
+  BNAME: 'ANDHERI',
+  AMOUNT: 4500,
+  ADATE: '1995-09-04'
+}
+db.Deposit.find({$and : [{AMOUNT : {$gt : 2000}} , {BNAME : 'VIRAR'}]})
+{
+  _id: ObjectId('67651ac70a98c2838f1c0bde'),
+  ACTNO: 109,
+  CNAME: 'KIRTI',
+  BNAME: 'VIRAR',
+  AMOUNT: 3000,
+  ADATE: '1997-05-03'
+}
+db.Deposit.find({} , {_id : 0, CNAME : 1, BNAME : 1, AMOUNT : 1})
+{
+  CNAME: 'ANIL',
+  BNAME: 'VRCE',
+  AMOUNT: 1000
+}
+{
+  CNAME: 'SUNIL',
+  BNAME: 'AJNI',
+  AMOUNT: 5000
+}
+{
+  CNAME: 'MEHUL',
+  BNAME: 'KAROLBAGH',
+  AMOUNT: 3500
+}
+{
+  CNAME: 'MADHURI',
+  BNAME: 'CHANDI',
+  AMOUNT: 1200
+}
+{
+  CNAME: 'PRMOD',
+  BNAME: 'M.G. ROAD',
+  AMOUNT: 3000
+}
+{
+  CNAME: 'SANDIP',
+  BNAME: 'ANDHERI',
+  AMOUNT: 2000
+}
+{
+  CNAME: 'SHIVANI',
+  BNAME: 'VIRAR',
+  AMOUNT: 1000
+}
+{
+  CNAME: 'KRANTI',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 5000
+}
+{
+  CNAME: 'KIRTI',
+  BNAME: 'VIRAR',
+  AMOUNT: 3000
+}
+{
+  CNAME: 'MITALI',
+  BNAME: 'ANDHERI',
+  AMOUNT: 4500
+}
+{
+  CNAME: 'RAJIV',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 7000
+}
+db.Deposit.find().sort({CNAME : 1})
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd6'),
+  ACTNO: 101,
+  CNAME: 'ANIL',
+  BNAME: 'VRCE',
+  AMOUNT: 1000,
+  ADATE: '1995-03-01'
+}
+{
+  _id: ObjectId('67651ac70a98c2838f1c0bde'),
+  ACTNO: 109,
+  CNAME: 'KIRTI',
+  BNAME: 'VIRAR',
+  AMOUNT: 3000,
+  ADATE: '1997-05-03'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdd'),
+  ACTNO: 108,
+  CNAME: 'KRANTI',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 5000,
+  ADATE: '1995-07-02'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd9'),
+  ACTNO: 104,
+  CNAME: 'MADHURI',
+  BNAME: 'CHANDI',
+  AMOUNT: 1200,
+  ADATE: '1995-12-17'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd8'),
+  ACTNO: 103,
+  CNAME: 'MEHUL',
+  BNAME: 'KAROLBAGH',
+  AMOUNT: 3500,
+  ADATE: '1995-11-17'
+}
+{
+  _id: ObjectId('67651b7f0a98c2838f1c0bdf'),
+  ACTNO: 110,
+  CNAME: 'MITALI',
+  BNAME: 'ANDHERI',
+  AMOUNT: 4500,
+  ADATE: '1995-09-04'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bda'),
+  ACTNO: 105,
+  CNAME: 'PRMOD',
+  BNAME: 'M.G. ROAD',
+  AMOUNT: 3000,
+  ADATE: '1996-03-27'
+}
+{
+  _id: ObjectId('67651b7f0a98c2838f1c0be0'),
+  ACTNO: 111,
+  CNAME: 'RAJIV',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 7000,
+  ADATE: '1998-10-02'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdb'),
+  ACTNO: 106,
+  CNAME: 'SANDIP',
+  BNAME: 'ANDHERI',
+  AMOUNT: 2000,
+  ADATE: '1996-03-31'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdc'),
+  ACTNO: 107,
+  CNAME: 'SHIVANI',
+  BNAME: 'VIRAR',
+  AMOUNT: 1000,
+  ADATE: '1995-09-05'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd7'),
+  ACTNO: 102,
+  CNAME: 'SUNIL',
+  BNAME: 'AJNI',
+  AMOUNT: 5000,
+  ADATE: '1996-01-04'
+}
+db.Deposit.find().sort({BNAME : -1})
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd6'),
+  ACTNO: 101,
+  CNAME: 'ANIL',
+  BNAME: 'VRCE',
+  AMOUNT: 1000,
+  ADATE: '1995-03-01'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdc'),
+  ACTNO: 107,
+  CNAME: 'SHIVANI',
+  BNAME: 'VIRAR',
+  AMOUNT: 1000,
+  ADATE: '1995-09-05'
+}
+{
+  _id: ObjectId('67651ac70a98c2838f1c0bde'),
+  ACTNO: 109,
+  CNAME: 'KIRTI',
+  BNAME: 'VIRAR',
+  AMOUNT: 3000,
+  ADATE: '1997-05-03'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdd'),
+  ACTNO: 108,
+  CNAME: 'KRANTI',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 5000,
+  ADATE: '1995-07-02'
+}
+{
+  _id: ObjectId('67651b7f0a98c2838f1c0be0'),
+  ACTNO: 111,
+  CNAME: 'RAJIV',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 7000,
+  ADATE: '1998-10-02'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bda'),
+  ACTNO: 105,
+  CNAME: 'PRMOD',
+  BNAME: 'M.G. ROAD',
+  AMOUNT: 3000,
+  ADATE: '1996-03-27'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd8'),
+  ACTNO: 103,
+  CNAME: 'MEHUL',
+  BNAME: 'KAROLBAGH',
+  AMOUNT: 3500,
+  ADATE: '1995-11-17'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd9'),
+  ACTNO: 104,
+  CNAME: 'MADHURI',
+  BNAME: 'CHANDI',
+  AMOUNT: 1200,
+  ADATE: '1995-12-17'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdb'),
+  ACTNO: 106,
+  CNAME: 'SANDIP',
+  BNAME: 'ANDHERI',
+  AMOUNT: 2000,
+  ADATE: '1996-03-31'
+}
+{
+  _id: ObjectId('67651b7f0a98c2838f1c0bdf'),
+  ACTNO: 110,
+  CNAME: 'MITALI',
+  BNAME: 'ANDHERI',
+  AMOUNT: 4500,
+  ADATE: '1995-09-04'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd7'),
+  ACTNO: 102,
+  CNAME: 'SUNIL',
+  BNAME: 'AJNI',
+  AMOUNT: 5000,
+  ADATE: '1996-01-04'
+}
+db.Deposit.find().sort({ACTNO : 1 , AMOUNT : -1})
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd6'),
+  ACTNO: 101,
+  CNAME: 'ANIL',
+  BNAME: 'VRCE',
+  AMOUNT: 1000,
+  ADATE: '1995-03-01'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd7'),
+  ACTNO: 102,
+  CNAME: 'SUNIL',
+  BNAME: 'AJNI',
+  AMOUNT: 5000,
+  ADATE: '1996-01-04'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd8'),
+  ACTNO: 103,
+  CNAME: 'MEHUL',
+  BNAME: 'KAROLBAGH',
+  AMOUNT: 3500,
+  ADATE: '1995-11-17'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd9'),
+  ACTNO: 104,
+  CNAME: 'MADHURI',
+  BNAME: 'CHANDI',
+  AMOUNT: 1200,
+  ADATE: '1995-12-17'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bda'),
+  ACTNO: 105,
+  CNAME: 'PRMOD',
+  BNAME: 'M.G. ROAD',
+  AMOUNT: 3000,
+  ADATE: '1996-03-27'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdb'),
+  ACTNO: 106,
+  CNAME: 'SANDIP',
+  BNAME: 'ANDHERI',
+  AMOUNT: 2000,
+  ADATE: '1996-03-31'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdc'),
+  ACTNO: 107,
+  CNAME: 'SHIVANI',
+  BNAME: 'VIRAR',
+  AMOUNT: 1000,
+  ADATE: '1995-09-05'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdd'),
+  ACTNO: 108,
+  CNAME: 'KRANTI',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 5000,
+  ADATE: '1995-07-02'
+}
+{
+  _id: ObjectId('67651ac70a98c2838f1c0bde'),
+  ACTNO: 109,
+  CNAME: 'KIRTI',
+  BNAME: 'VIRAR',
+  AMOUNT: 3000,
+  ADATE: '1997-05-03'
+}
+{
+  _id: ObjectId('67651b7f0a98c2838f1c0bdf'),
+  ACTNO: 110,
+  CNAME: 'MITALI',
+  BNAME: 'ANDHERI',
+  AMOUNT: 4500,
+  ADATE: '1995-09-04'
+}
+{
+  _id: ObjectId('67651b7f0a98c2838f1c0be0'),
+  ACTNO: 111,
+  CNAME: 'RAJIV',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 7000,
+  ADATE: '1998-10-02'
+}
+db.Deposit.find().limit(2)
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd6'),
+  ACTNO: 101,
+  CNAME: 'ANIL',
+  BNAME: 'VRCE',
+  AMOUNT: 1000,
+  ADATE: '1995-03-01'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd7'),
+  ACTNO: 102,
+  CNAME: 'SUNIL',
+  BNAME: 'AJNI',
+  AMOUNT: 5000,
+  ADATE: '1996-01-04'
+}
+db.Deposit.find().skip(2).limit(1)
+{
+  _id: ObjectId('67651a360a98c2838f1c0bd8'),
+  ACTNO: 103,
+  CNAME: 'MEHUL',
+  BNAME: 'KAROLBAGH',
+  AMOUNT: 3500,
+  ADATE: '1995-11-17'
+}
+db.Deposit.find().skip(5).limit(2)
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdb'),
+  ACTNO: 106,
+  CNAME: 'SANDIP',
+  BNAME: 'ANDHERI',
+  AMOUNT: 2000,
+  ADATE: '1996-03-31'
+}
+{
+  _id: ObjectId('67651a360a98c2838f1c0bdc'),
+  ACTNO: 107,
+  CNAME: 'SHIVANI',
+  BNAME: 'VIRAR',
+  AMOUNT: 1000,
+  ADATE: '1995-09-05'
+}
+db.Deposit.countDocuments()
+11
+BANK_INFO
+Selection deleted
+
+
