@@ -420,6 +420,23 @@ db.Student.updateMany({"city" : "San Francisco"} , {$rename: {"age" : "yearsOld"
   modifiedCount: 0,
   upsertedCount: 0
 }
-Student
-Selection deleted
+db.createCollection("Employee" , {
+capped : true,
+size : 5120,
+max : 100,
+validator : {
+	$jsonSchema : {
+	bsonType : "object",
+	required : ["Ecode" , "Ename"],
+	properties : {
+			"Ecode" : {bsonType : "int"},
+			"Ename" : {bsonType : "string"},
+			"Age" : {bsonType : "int"},
+			"City" : {bsonType : "string"}
+}}}})
+db.Employee.insertMany([{"Ecode": 1, "Ename": "John"},
+{"Ecode": 2, "Ename": "Jane", "Age": 25, "City": "Los Angeles"},
+{"Ecode": 3, "Ename": "Tom", "Age": 35},
+{"Ecode": 4, "Ename": "Lucy", "Age": 28, "City": "San Francisco", "isActive": true}
+])
 
